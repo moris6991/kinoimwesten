@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kino im Westen</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body, html {
+            height: 100%;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to right, #7A3B53, #3E497E); /* Farbverlauf von links nach rechts für Desktop */
+            transition: background 1.0s ease; /* Übergangsanpassung für den Hintergrund */
+            overflow-x: hidden; /* Verhindert horizontales Scrollen */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100vw; /* Nimmt die volle Breite des Viewports ein */
+            max-width: 1200px;
+            height: 100vh; /* Nimmt die volle Höhe des Viewports ein */
+        }
+
+        .logo-container {
+            width: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            transition: background-color 0.2s ease;
+            height: 100%; /* Damit der Container die volle Höhe ausnutzt */
+        }
+
+        .logo-container img {
+            max-width: 100%;
+            max-height: 100%; /* Begrenzt die Höhe der Logos auf 100% des Containers */
+            height: auto;
+            transition: transform 0.3s ease;
+        }
+
+        .logo-container:hover img {
+            transform: scale(1.2);
+        }
+
+        @media (max-width: 768px) {
+            body, html {
+                background: linear-gradient(to bottom, #7A3B53, #3E497E); /* Farbverlauf von oben nach unten für mobile Ansicht */
+            }
+
+            .container {
+                flex-direction: column;
+                height: auto; /* Höhe automatisch anpassen für mobile Ansicht */
+            }
+
+            .logo-container {
+                width: 100%;
+                height: auto; /* Höhe automatisch anpassen */
+                padding: 10px; /* Optional: Abstand reduzieren */
+            }
+
+            .logo-container img {
+                max-width: 90vw; /* Begrenzung auf 90% der Viewport-Breite */
+                max-height: 100%; /* Höhe dynamisch begrenzen */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo-container roxy">
+            <a href="https://www.roxy-hs.de" target="_blank" onmouseover="changeBackground('#7A3B53')" onmouseout="resetBackground()">
+                <img src="roxy-logo.png" alt="Roxy Filmtheater">
+            </a>
+        </div>
+        <div class="logo-container gloria">
+            <a href="https://www.kino-erkelenz.de" target="_blank" onmouseover="changeBackground('#3E497E')" onmouseout="resetBackground()">
+                <img src="gloria-logo.png" alt="Gloria Filmpalast">
+            </a>
+        </div>
+    </div>
+
+    <script>
+        function changeBackground(color) {
+            document.body.style.background = color; /* Hintergrundfarbe beim Hover ändern */
+        }
+
+        function resetBackground() {
+            if (window.innerWidth <= 768) {
+                document.body.style.background = 'linear-gradient(to bottom, #7A3B53, #3E497E)'; /* Reset auf vertikalen Farbverlauf in der mobilen Ansicht */
+            } else {
+                document.body.style.background = 'linear-gradient(to right, #7A3B53, #3E497E)'; /* Reset auf horizontalen Farbverlauf in der Desktop-Ansicht */
+            }
+        }
+
+        window.addEventListener('resize', resetBackground); /* Hintergrund anpassen, wenn das Fenstergrößen geändert wird */
+    </script>
+</body>
+</html>
