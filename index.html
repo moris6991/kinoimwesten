@@ -16,9 +16,9 @@
             width: 100%;
             margin: 0;
             padding: 0;
-            background: linear-gradient(to right, #7A3B53, #3E497E); /* Farbverlauf von links nach rechts für Desktop */
-            transition: background 1.0s ease; /* Übergangsanpassung für den Hintergrund */
-            overflow-x: hidden; /* Verhindert horizontales Scrollen */
+            background: linear-gradient(to right, #7A3B53, #3E497E);
+            transition: background 1.0s ease;
+            overflow-x: hidden;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -28,9 +28,9 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            width: 100vw; /* Nimmt die volle Breite des Viewports ein */
+            width: 100vw;
             max-width: 1200px;
-            height: 100vh; /* Nimmt die volle Höhe des Viewports ein */
+            height: 100vh;
         }
 
         .logo-container {
@@ -40,12 +40,12 @@
             align-items: center;
             padding: 20px;
             transition: background-color 0.2s ease;
-            height: 100%; /* Damit der Container die volle Höhe ausnutzt */
+            height: 100%;
         }
 
         .logo-container img {
             max-width: 100%;
-            max-height: 100%; /* Begrenzt die Höhe der Logos auf 100% des Containers */
+            max-height: 100%;
             height: auto;
             transition: transform 0.3s ease;
         }
@@ -54,25 +54,42 @@
             transform: scale(1.2);
         }
 
+        .impressum-link {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            font-family: Arial, sans-serif;
+            font-size: 12px;
+        }
+
+        .impressum-link a {
+            color: black;
+            text-decoration: none;
+        }
+
+        .impressum-link a:hover {
+            text-decoration: underline;
+        }
+
         @media (max-width: 768px) {
             body, html {
-                background: linear-gradient(to bottom, #7A3B53, #3E497E); /* Farbverlauf von oben nach unten für mobile Ansicht */
+                background: linear-gradient(to bottom, #7A3B53, #3E497E);
             }
 
             .container {
                 flex-direction: column;
-                height: auto; /* Höhe automatisch anpassen für mobile Ansicht */
+                height: auto;
             }
 
             .logo-container {
                 width: 100%;
-                height: auto; /* Höhe automatisch anpassen */
-                padding: 10px; /* Optional: Abstand reduzieren */
+                height: auto;
+                padding: 10px;
             }
 
             .logo-container img {
-                max-width: 90vw; /* Begrenzung auf 90% der Viewport-Breite */
-                max-height: 100%; /* Höhe dynamisch begrenzen */
+                max-width: 90vw;
+                max-height: 100%;
             }
         }
     </style>
@@ -91,20 +108,24 @@
         </div>
     </div>
 
+    <div class="impressum-link">
+        <a href="impressum.html" target="_self">Impressum</a>
+    </div>
+
     <script>
         function changeBackground(color) {
-            document.body.style.background = color; /* Hintergrundfarbe beim Hover ändern */
+            document.body.style.background = color;
         }
 
         function resetBackground() {
             if (window.innerWidth <= 768) {
-                document.body.style.background = 'linear-gradient(to bottom, #7A3B53, #3E497E)'; /* Reset auf vertikalen Farbverlauf in der mobilen Ansicht */
+                document.body.style.background = 'linear-gradient(to bottom, #7A3B53, #3E497E)';
             } else {
-                document.body.style.background = 'linear-gradient(to right, #7A3B53, #3E497E)'; /* Reset auf horizontalen Farbverlauf in der Desktop-Ansicht */
+                document.body.style.background = 'linear-gradient(to right, #7A3B53, #3E497E)';
             }
         }
 
-        window.addEventListener('resize', resetBackground); /* Hintergrund anpassen, wenn das Fenstergrößen geändert wird */
+        window.addEventListener('resize', resetBackground);
     </script>
 </body>
 </html>
